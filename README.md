@@ -6,8 +6,6 @@ Live audio streaming website based on flaskr
 
 ### Prerequisites
 
-What you need
-
 ```
 Flask (1.0.2)
 Jinja2 (2.10.1)
