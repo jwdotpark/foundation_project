@@ -8,9 +8,10 @@
 ### Prerequisites
 
 ```
+Icecast (2.4.4)
 Flask (1.0.2)
 Jinja2 (2.10.1)
-virtualenv(16.5.0)
+Virtualenv (16.5.0)
 ```
 
 ### Installing & Deployment
@@ -35,5 +36,6 @@ python -m flask run --host=0.0.0.0 --port=80
 ## Built With
 
 * [Flask](http://flask.pocoo.org/) - Microframework for Python based on Werkzeug, Jinja 2
+* [Icecast](http://icecast.org/) - Streaming media (audio/video) server
 
 
