@@ -1,0 +1,68 @@
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+<style>
+</style>
+
+</head>
+
+
+
+{% extends 'base.html' %}
+{% block header %}
+  <!--<h1>{% block title %}TEST{% endblock %}</h1>--><br>
+  {% if g.user %}
+    <a class="action" href="{{ url_for('blog.create') }}">Add Schedule</a>
+  {% endif %}
+{% endblock %}
+
+
+
+{% block content %}
+<!-- main image/video content container -->
+<div class="navblock">
+    <img src="https://i.imgur.com/l8J2aa3.jpg" alt="test_image" class="responsive">
+    <hr>
+</div>
+<!-- main image/video content container -->
+
+
+
+<!-- static information right column -->
+<div class="rightcolumn">
+    <h2>ANY IDEAS? Submission?</h2>
+    <p>Please feel free to get in touch with <a class="link" href="mailto:jongwoo.park@code.berlin?Subject=Hello%20again" target="_top">me!</a></p>
+    <h2>IMAGINARY FRIENDS</h2>
+    <img src="https://www.residentadvisor.net/images/events/flyer/2018/8/de-0817-1142215-0-back.jpg" alt="IF1" class="responsive">
+    <p>21st Jul <a class="link" href="https://goo.gl/maps/2EraP6hxWnXo25CSA"> Ziegrastr. 11</a></p>
+    <img src="https://www.residentadvisor.net/images/events/flyer/2018/4/de-0430-1102485-1115536-front.jpg" alt="IF2" class="responsive">
+    <p>30th Apr <a class="link" href="https://goo.gl/maps/2EraP6hxWnXo25CSA"> Ziegrastr. 11</a></p>
+</div>
+<!-- static information right column -->
+
+
+
+
+<!--iterating main left column -->
+{% for post in posts %}
+  <div class="leftcolumn">
+    <article class="post">
+    <header>
+    <div>
+    <h1>{{ post['title'] }}</h1>
+  </div>
+{% if g.user['id'] == post['author_id'] %}
+      <a class="action" href="{{ url_for('blog.update', id=post['id']) }}">Edit</a>
+{% endif %}
+    </header>
+      <p class="body">{{ post['body'] }}</p>
+      </article>
+      {% if not loop.last %}
+  </div>
+{% endif %}
+{% endfor %}
+<!--iterating main left column -->
+
+
+{% endblock %}

@@ -1,0 +1,81 @@
+<!doctype html>
+<title>{% block title %}{% endblock %} - </title>
+<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+<link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:700" rel="stylesheet">
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+<head>
+<style>
+
+.pointer{
+  cursor: pointer;
+}
+
+</style>
+</head>
+
+<nav>
+  <h1><a href="{{ url_for('index') }}">TEST WEBSITE</a></h1>
+  <ul>
+    {% if g.user %}
+      <li><span>{{ g.user['username'] }}</span>
+      <li><a href="{{ url_for('auth.logout') }}">Log Out</a>
+    {% else %}
+      <li><a href="{{ url_for('auth.register') }}">Register</a>
+      <li><a href="{{ url_for('auth.login') }}">Log In</a>
+    {% endif %}
+  </ul>
+
+  <div class="music">
+      <a class="pointer" class="media" onclick="playAudio()"><i class="material-icons">play_arrow</i></a>
+      <a class="pointer" class="media" onclick="pauseAudio()"><i class="material-icons">pause_circle_filled</i></a>
+      <a class="pointer" class="media" onclick="enableMute()"><i class="material-icons">volume_off</i></a>
+      <a class="pointer" class="media" onclick="disableMute()"><i class="material-icons">volume_up</i></a>
+    
+      <br> 
+      <audio id="myAudio" >
+          <source src="https://jongwootest.out.airtime.pro/jongwootest_a" type="audio/mp3">
+          <source src="https://jongwootest.out.airtime.pro/jongwootest_a" type="mp3/ogg">
+          Your browser does not support HTML5 audio.
+        <!--
+        <source src="http://stream-relay-geo.ntslive.net/stream" type="audio/mp3">
+          <source src="http://stream-relay-geo.ntslive.net/stream" type="mp3/ogg">
+          Your browser does not support HTML5 audio.-->
+      </audio>
+</nav>
+
+<script async>
+var aud = document.getElementById("myAudio"); 
+
+function playAudio() { 
+aud.play(); 
+} 
+
+function pauseAudio() { 
+aud.pause(); 
+} 
+
+function enableMute() { 
+aud.muted = true;
+} 
+
+function disableMute() { 
+aud.muted = false;
+} 
+
+</script>
+</nav>
+</head>
+
+
+<body>
+  <!--embedded chat-->
+  <script id="cid0020000216536508380" data-cfasync="false" async src="//st.chatango.com/js/gz/emb.js" style="width: 193px;height: 300px;">{"handle" :"foundation-project","arch":"js","styles":{"a":"000000","b":100,"c":"FFFFFF","d":"FFFFFF","k":"000000","l":"000000","m":"000000","n":"FFFFFF","p":"10","q":"000000","r":100,"pos":"br","cv":1,"cvfnt":"'pt mono', sans-serif","cvbg":"000000","cvw":100,"cvh":18,"ticker":1,"fwtickm":1}}</script>  
+    <header>
+    {% block header %}{% endblock %}
+  </header>
+  {% for message in get_flashed_messages() %}
+    <div class="flash">{{ message }}</div>
+  {% endfor %}
+  {% block content %}{% endblock %}
+</section>
