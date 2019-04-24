@@ -2,7 +2,7 @@
 
 # Simple Radio Website
 
-[Live audio streaming website](http://35.246.192.117/) based on flaskr
+[Live audio streaming website](http://35.246.192.117/) based on microblog [flaskr](http://flask.pocoo.org/docs/0.12/tutorial/introduction/)
 
 
 ### Prerequisites
