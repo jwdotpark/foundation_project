@@ -35,6 +35,6 @@ python -m flask run --host=0.0.0.0 --port=80
 
 ## Built With
 
-* [Flask](http://flask.pocoo.org/) - Flask is a microframework for Python based on Werkzeug, Jinja 2
+* [Flask](http://flask.pocoo.org/) - Microframework for Python based on Werkzeug, Jinja 2
 
 
