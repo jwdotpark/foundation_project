@@ -3,6 +3,7 @@
 # Simple Radio Website
 
 Live audio streaming website based on flaskr
+35.246.192.117/
 
 ### Prerequisites
 
