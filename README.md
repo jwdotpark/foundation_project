@@ -2,8 +2,8 @@
 
 # Simple Radio Website
 
-Live audio streaming website based on flaskr
-35.246.192.117/
+[Live audio streaming website](http://35.246.192.117/) based on flaskr
+
 
 ### Prerequisites
 
