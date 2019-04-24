@@ -8,6 +8,7 @@
 ### Prerequisites
 
 ```
+Python (3.7.2)
 Icecast (2.4.4)
 Flask (1.0.2)
 Jinja2 (2.10.1)
